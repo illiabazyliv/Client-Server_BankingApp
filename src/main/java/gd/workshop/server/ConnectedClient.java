@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.net.Socket;
 
 public class ConnectedClient {
-   private Socket socket;
+   private final Socket socket;
    private DataInputStream in;
-   private int ID;
+   private final int ID;
 
    public ConnectedClient(Socket socket, int ID) {
        this.socket = socket;

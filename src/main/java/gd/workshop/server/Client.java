@@ -16,7 +16,7 @@ public class Client {
         in = new Scanner(System.in);
         socket = new Socket("127.0.0.1", Server.PORT);
         out = new DataOutputStream(socket.getOutputStream());
-        sendMessage();
+        sendMessage();  
     }
     public void sendMessage() throws IOException {
         String line = "";
