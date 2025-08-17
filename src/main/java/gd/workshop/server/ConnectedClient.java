@@ -10,6 +10,7 @@ public class ConnectedClient {
    private Socket socket;
    private DataInputStream in;
    private int ID;
+
    public ConnectedClient(Socket socket, int ID) {
        this.socket = socket;
        this.ID = ID;
@@ -23,17 +24,18 @@ public class ConnectedClient {
    }
    public void readMessage()throws IOException {
     String line = "";
-    while (!line.equals(Server.StopSighn)) {
+    while (!line.equals(Server.STOP_STRING)) {
         try {
             line = in.readUTF();
             System.out.println("Client" + ID + ": " + line);
-
         }
         catch (IOException e) {
             e.printStackTrace();
         }
+        System.out.println(line);
     }
-    }
+       System.out.println("Client" + ID + "disconnected");
+   }
     public void close() throws IOException {
        try {
            socket.close();

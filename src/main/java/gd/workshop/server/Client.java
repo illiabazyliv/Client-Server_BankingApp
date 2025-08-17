@@ -16,13 +16,13 @@ public class Client {
         in = new Scanner(System.in);
         socket = new Socket("127.0.0.1", Server.PORT);
         out = new DataOutputStream(socket.getOutputStream());
+        sendMessage();
     }
-    public void sendMessage(String message) throws IOException {
+    public void sendMessage() throws IOException {
         String line = "";
-        while (!line.equals(Server.StopSighn)) {
+        while (!line.equals(Server.STOP_STRING)) {
             line = in.nextLine();
             out.writeUTF("client:" + line);
-            out.writeUTF(message);
         }
     }
     private void Close(){

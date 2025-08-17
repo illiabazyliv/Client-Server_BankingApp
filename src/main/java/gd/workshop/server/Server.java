@@ -8,7 +8,7 @@ public class Server {
     private ServerSocket server;
     private DataInputStream in;
     public static int PORT = 3000;
-    public static String StopSighn = "end";
+    public static String STOP_STRING = "##";
     private int index = 0;
 
     public Server() {
@@ -31,10 +31,10 @@ public class Server {
         if (socket.isConnected()) {
             new Thread(() ->{
                 index++;
-                ConnectedClient client = new ConnectedClient(socket , index);
+                ConnectedClient connectedClient = new ConnectedClient(socket , index);
                 try {
-                    client.readMessage();
-                    client.close();
+                    connectedClient.readMessage();
+                    connectedClient.close();
                 }
                 catch (Exception e){
                     throw new RuntimeException(e);
