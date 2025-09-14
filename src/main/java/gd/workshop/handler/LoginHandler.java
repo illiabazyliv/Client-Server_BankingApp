@@ -17,6 +17,7 @@ public class LoginHandler implements CommandHandler {
             return "You are logged in as admin";
         }
         if(username.equals("investor") && password.equals("10032")) {
+            context.Login(2 ,username, password, Role.INVESTOR);
             return "You are logged in as investor";
         }
         return "Invalid username or password";

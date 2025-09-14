@@ -15,7 +15,7 @@ public class CommandRouter {
     }
     public String Route(String input , UserContext userContext) {
         String[] parts = input.split(" ");
-        String cmdName = parts[0];
+        String cmdName = parts[0].toUpperCase();
         String[] args = parts.length > 1 ? java.util.Arrays.copyOfRange(parts, 1, parts.length) : new String[0];
 
         try {
